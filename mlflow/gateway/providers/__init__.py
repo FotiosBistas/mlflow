@@ -17,6 +17,7 @@ def get_provider(provider: Provider) -> Type[BaseProvider]:
     from mlflow.gateway.providers.openai import OpenAIProvider
     from mlflow.gateway.providers.palm import PaLMProvider
     from mlflow.gateway.providers.togetherai import TogetherAIProvider
+    from mlflow.gateway.providers.mixedbread import MixedBreadProvider
 
     provider_to_class = {
         Provider.OPENAI: OpenAIProvider,
@@ -30,6 +31,7 @@ def get_provider(provider: Provider) -> Type[BaseProvider]:
         Provider.BEDROCK: AmazonBedrockProvider,
         Provider.MISTRAL: MistralProvider,
         Provider.TOGETHERAI: TogetherAIProvider,
+        Provider.MIXEDBREAD: MixedBreadProvider
     }
     if prov := provider_to_class.get(provider):
         return prov
